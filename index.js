@@ -94,13 +94,13 @@ console.log(CemberinAlani(15, pi));
 
 /*  (oto test yok) sayilar dizisi içinde kaç adet sayı olduğunu konsola yazdırın */
 
-let ucetambolunenler = [],
-  enkucuk = 999,
-  enbuyuk = 0,
-  ucebolunenlerintoplami = 0,
-  besyuzdenkucuksayilar = [],
-  siralisayilar = [],
-  tekraredensayilar = [];
+let ucetambolunenler = [];
+let enkucuk = 999;
+let enbuyuk = 0;
+let ucebolunenlerintoplami = 0;
+let besyuzdenkucuksayilar = [];
+let siralisayilar = [];
+let tekraredensayilar = [];
 
 // 3a çözümü
 for (let i = 1; i < sayilar.length; i++) {
@@ -119,13 +119,14 @@ sayilar.forEach(function (sayi) {
     ucetambolunenler.push(sayi);
   }
 });
-
+console.log(ucetambolunenler);
 /* kodlar buraya */
 
 // 3c çözümü:
-ucetambolunenler.reduce(function (toplam, sayi) {
-  ucebolunenlerintoplami = toplam + sayi;
-}, 0);
+ucebolunenlerintoplami = ucetambolunenler.reduce(
+  (toplam, sayi) => toplam + sayi,
+  0
+);
 /* kodlar buraya */
 
 // 3d çözümü
@@ -138,9 +139,7 @@ sayilar.filter(function (sayi) {
 /* kodlar buraya */
 
 // 3e çözümü
-besyuzdenkucuksayilar.sort(function (a, b) {
-  siralisayilar.push(a - b);
-});
+siralisayilar = besyuzdenkucuksayilar.sort((a, b) => a - b);
 /* kodlar buraya */
 
 // 3f çözümü
