@@ -95,8 +95,8 @@ console.log(CemberinAlani(15, pi));
 /*  (oto test yok) sayilar dizisi içinde kaç adet sayı olduğunu konsola yazdırın */
 
 let ucetambolunenler = [],
-  enkucuk = [],
-  enbuyuk = [],
+  enkucuk = 999,
+  enbuyuk = 0,
   ucebolunenlerintoplami = 0,
   besyuzdenkucuksayilar = [],
   siralisayilar = [],
