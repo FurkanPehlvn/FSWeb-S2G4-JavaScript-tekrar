@@ -67,9 +67,11 @@ console.log(CemberinCevresi(5));
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
 
-function CemberinAlani(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinAlani(yaricap, pi) {
+  let alan = pi * (yaricap * yaricap);
+  return alan;
 }
+console.log(CemberinAlani(15, pi));
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -83,7 +85,7 @@ function CemberinAlani(/* kodlar buraya */) {
 		
 		3d. `besyuzdenkucuksayilar` adında bir dizi oluşturarak, sayilar dizisinin içindeki 500'den küçük sayıları bu diziye atayın (.filter metodunu kullanın)
 		
-		3e. besyuzdenkucuksayilar dizisindeki sayıları küçükten büyüğe sıralayıp `siralisayilar` adındaki bir diziye aktarın (.sort metodunu kullanın)
+		3e. besyuzdenkucuksayilar dizisindeki  `sirsayıları küçükten büyüğe sıralayıpalisayilar` adındaki bir diziye aktarın (.sort metodunu kullanın)
 		
 		3f. `tekraredensayilar` adında bir dizi oluşturun. sayilar dizisi içerisindeki bazı sayılar birden fazla kere yazılmış. sayilar dizisi içerisinde birden fazla kez yazılmış sayıları tespit ederek kaç kere tekrar edildiğini belirten bir string oluşturulup `tekraredensayilar` dizisine aktarılmasını istiyoruz. Örnek string: "{sayı} sayısı {tekrarSayisi} kere tekrar edilmiştir"
 		ÖRNEK: sayilar dizisi içerisinde 45 sayısı 3 kere yazılmış. "45 sayısı 3 tekrar edilmiştir" stringini `tekraredensayilar` dizisine aktaracağız.
@@ -92,35 +94,72 @@ function CemberinAlani(/* kodlar buraya */) {
 
 /*  (oto test yok) sayilar dizisi içinde kaç adet sayı olduğunu konsola yazdırın */
 
-let ucetambolunenler,
-  enkucuk,
-  enbuyuk,
-  ucebolunenlerintoplami,
-  besyuzdenkucuksayilar,
-  siralisayilar,
-  tekraredensayilar;
+let ucetambolunenler = [],
+  enkucuk = [],
+  enbuyuk = [],
+  ucebolunenlerintoplami = 0,
+  besyuzdenkucuksayilar = [],
+  siralisayilar = [],
+  tekraredensayilar = [];
 
 // 3a çözümü
-
+for (let i = 1; i < sayilar.length; i++) {
+  if (sayilar[i] < enkucuk) {
+    enkucuk = sayilar[i];
+  }
+  if (sayilar[i] > enbuyuk) {
+    enbuyuk = sayilar[i];
+  }
+}
 /* kodlar buraya */
 
 // 3b çözümü:
+sayilar.forEach(function (sayi) {
+  if (sayi % 3 === 0) {
+    ucetambolunenler.push(sayi);
+  }
+});
 
 /* kodlar buraya */
 
 // 3c çözümü:
-
+ucetambolunenler.reduce(function (toplam, sayi) {
+  ucebolunenlerintoplami = toplam + sayi;
+}, 0);
 /* kodlar buraya */
 
 // 3d çözümü
+sayilar.filter(function (sayi) {
+  if (sayi < 500) {
+    besyuzdenkucuksayilar.push(sayi);
+  }
+});
 
 /* kodlar buraya */
 
 // 3e çözümü
-
+besyuzdenkucuksayilar.sort(function (a, b) {
+  siralisayilar.push(a - b);
+});
 /* kodlar buraya */
 
 // 3f çözümü
+let tekrar = {};
+
+for (var j = 0; j < sayilar.length; j++) {
+  if (tekrar[sayilar[j]] === undefined) {
+    tekrar[sayilar[j]] = 1;
+  } else {
+    tekrar[sayilar[j]]++;
+  }
+}
+for (var sayi in tekrar) {
+  if (tekrar.hasOwnProperty(sayi) && tekrar[sayi] > 1) {
+    tekraredensayilar.push(
+      `${sayi} sayısı ${tekrar[sayi]} kere tekrar edilmiştir`
+    );
+  }
+}
 
 /* kodlar buraya */
 
