@@ -152,7 +152,7 @@ for (var j = 0; j < sayilar.length; j++) {
     tekrar[sayilar[j]]++;
   }
 }
-for (var sayi in tekrar) {
+for (let sayi in tekrar) {
   if (tekrar.hasOwnProperty(sayi) && tekrar[sayi] > 1) {
     tekraredensayilar.push(
       `${sayi} sayısı ${tekrar[sayi]} kere tekrar edilmiştir`
